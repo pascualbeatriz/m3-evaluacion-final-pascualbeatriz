@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Filters = props => {
+const Filter = props => {
   const {getInputValue, gap} = props;
   return (
     <div className="gap__search-container">
@@ -10,9 +10,9 @@ const Filters = props => {
   );
 };
 
-Filters.propTypes = {
+Filter.propTypes = {
   getInputValue:PropTypes.func,
   gap:PropTypes.string
 }
 
-export default Filters;
+export default Filter;

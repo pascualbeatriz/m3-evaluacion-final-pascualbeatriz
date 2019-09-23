@@ -1,7 +1,8 @@
 import React from 'react';
 import {getUrlData} from './Services/Fetch';
-import CharacterList from './components/CharacterList';
-import Filters from './components/Filters';
+import Home from './components/Home';
+import CharacterDetail from './components/CharacterDetail';
+import {Switch, Route} from 'react-router-dom';
 import './App.css';
 
 class App extends React.Component {
@@ -40,15 +41,26 @@ getInputValue(event){
     return (
       <div className="app">
         <h1 className="app__tittle">titulo, aqui va el logo</h1>
-        <Filters 
-        getInputValue = {this.getInputValue}
-        gap = {gap}
-        />
-
-        <CharacterList
-        characters = {characters}
-        gap = {gap}
-        />      
+          <Switch>
+            <Route exact path="/" render = { () => {
+              return (
+                <Home 
+                  getInputValue = {this.getInputValue}
+                  gap = {gap}
+                  characters = {characters}
+                />   
+              );
+            }}
+            />
+            <Route path="/character_detail" render = { () => {
+              return(
+              
+              );
+            }}
+            />
+          </Switch>
+          
+          
       </div>
     );
   }
