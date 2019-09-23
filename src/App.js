@@ -1,6 +1,7 @@
 import React from 'react';
 import {getUrlData} from './Services/Fetch';
 import CharacterList from './components/CharacterList';
+import Filters from './components/Filters';
 import './App.css';
 
 class App extends React.Component {
@@ -8,8 +9,10 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      characters:[]
+      characters:[],
+      gap: ''
     }
+    this.getInputValue = this.getInputValue.bind(this);
   }
 
 componentDidMount (){
@@ -25,14 +28,27 @@ getUrl(){
   });
 }
 
+getInputValue(event){
+  const gap = event.currentTarget.value;
+  this.setState({
+    gap: gap
+  });
+}
+
   render() {
-    const {characters} = this.state;
+    const {characters,gap} = this.state;
     return (
       <div className="app">
         <h1 className="app__tittle">titulo, aqui va el logo</h1>
-       <CharacterList
-       characters = {characters}
-       />      
+        <Filters 
+        getInputValue = {this.getInputValue}
+        gap = {gap}
+        />
+
+        <CharacterList
+        characters = {characters}
+        gap = {gap}
+        />      
       </div>
     );
   }

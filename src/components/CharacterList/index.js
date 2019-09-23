@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CharacterCard from '../CharacterCard';
+import CharacterCard from './CharacterCard';
 
 const CharacterList = props => {
-  const {characters} = props;
+  const {characters,gap} = props;
   return(
     <ol className="characters__list">
-    {characters.map(characterList => {
+    {characters
+    .filter(myCharacter => myCharacter.name.toUpperCase().includes(gap.toUpperCase()))
+    .map(characterList => {
       return(
         <li className="character__List" key={characterList.id}>
           <CharacterCard 
