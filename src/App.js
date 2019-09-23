@@ -52,9 +52,12 @@ getInputValue(event){
               );
             }}
             />
-            <Route path="/character_detail" render = { () => {
+            <Route path="/character_detail/:id" render = { (routerProps) => {
               return(
-              
+                <CharacterDetail 
+                  routerProps = {routerProps}
+                  characters = {characters}
+                />
               );
             }}
             />
