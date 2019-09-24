@@ -12,7 +12,6 @@ class App extends React.Component {
     this.state = {
       characters:[],
       gap: '',
-      gender:'all'
     }
     this.getInputValue = this.getInputValue.bind(this);
   }
@@ -38,7 +37,7 @@ getInputValue(event){
 }
 
   render() {
-    const {characters,gap,gender} = this.state;
+    const {characters,gap} = this.state;
     return (
       <div className="app">
         <h1 className="app__tittle">titulo, aqui va el logo</h1>
@@ -49,7 +48,6 @@ getInputValue(event){
                   getInputValue = {this.getInputValue}
                   gap = {gap}
                   characters = {characters}
-                  gender = {gender}
                 />   
               );
             }}
