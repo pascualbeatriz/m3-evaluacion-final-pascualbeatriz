@@ -40,7 +40,10 @@ getInputValue(event){
     const {characters,gap} = this.state;
     return (
       <div className="app">
-        <h1 className="app__tittle">titulo, aqui va el logo</h1>
+        <header className="app__header">
+          <h1 className="app__tittle">titulo, aqui va el logo</h1>
+        </header>
+        <main className="app__main">
           <Switch>
             <Route exact path="/" render = { () => {
               return (
@@ -62,8 +65,8 @@ getInputValue(event){
             }}
             />
           </Switch>
-          
-          
+        </main>
+        <footer className="app__footer">Ejercicio Beatriz Pascual</footer>
       </div>
     );
   }
