@@ -4,17 +4,19 @@ import Filter from '../Filter';
 import PropTypes from 'prop-types';
 
 const Home = props => {
-  const {getInputValue, gap ,characters} = props;
+  const {getInputValue, gap ,characters,gender} = props;
   return(
     <Fragment>
     <Filter 
       getInputValue = {getInputValue}
       gap = {gap}
+      gender = {gender}
       />
 
     <CharacterList
       characters = {characters}
       gap = {gap}
+      gender = {gender}
       />   
     </Fragment>
   );

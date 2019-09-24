@@ -11,7 +11,8 @@ class App extends React.Component {
 
     this.state = {
       characters:[],
-      gap: ''
+      gap: '',
+      gender:'Female'
     }
     this.getInputValue = this.getInputValue.bind(this);
   }
@@ -37,7 +38,7 @@ getInputValue(event){
 }
 
   render() {
-    const {characters,gap} = this.state;
+    const {characters,gap,gender} = this.state;
     return (
       <div className="app">
         <h1 className="app__tittle">titulo, aqui va el logo</h1>
@@ -48,6 +49,7 @@ getInputValue(event){
                   getInputValue = {this.getInputValue}
                   gap = {gap}
                   characters = {characters}
+                  gender = {gender}
                 />   
               );
             }}
@@ -57,6 +59,7 @@ getInputValue(event){
                 <CharacterDetail 
                   routerProps = {routerProps}
                   characters = {characters}
+                  gender = {gender}
                 />
               );
             }}
