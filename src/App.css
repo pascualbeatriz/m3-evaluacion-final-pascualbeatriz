@@ -1,0 +1,23 @@
+/* .app {
+  background-color: black;
+  
+} */
+
+.character__List-link{
+  color: white;
+  text-decoration:none;
+  }
+
+.character__List-name{
+  color: tomato;
+  text-decoration:none;
+  }
+
+.characters__list {
+  list-style: none;   
+  display: grid;
+  }
+
+.character__img-container:hover {
+  background: tomato;
+} 

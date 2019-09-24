@@ -8,7 +8,7 @@ const CharacterDetail = props => {
 
   const characterDetail = characters.filter(detail => detail.id === getId);
 
-  if(characterDetail[0  ]){
+  if(characterDetail[0]){
     const {name,status,species,origin,episode,image} = characterDetail[0];
       return(
         <Fragment>
