@@ -40,28 +40,35 @@ getInputValue(event){
     const {characters,gap} = this.state;
     return (
       <div className="app">
+      <header className="app__header">
         <h1 className="app__tittle">titulo, aqui va el logo</h1>
-          <Switch>
-            <Route exact path="/" render = { () => {
-              return (
-                <Home 
-                  getInputValue = {this.getInputValue}
-                  gap = {gap}
-                  characters = {characters}
-                />   
-              );
-            }}
-            />
-            <Route path="/character_detail/:id" render = { (routerProps) => {
-              return(
-                <CharacterDetail 
-                  routerProps = {routerProps}
-                  characters = {characters}
-                />
-              );
-            }}
-            />
-          </Switch>
+      </header>
+      <main className="app__main">
+        <Switch>
+          <Route exact path="/" render = { () => {
+            return (
+              <Home 
+                getInputValue = {this.getInputValue}
+                gap = {gap}
+                characters = {characters}
+              />   
+            );
+          }}
+          />
+          <Route path="/character_detail/:id" render = { (routerProps) => {
+            return(
+              <CharacterDetail 
+                routerProps = {routerProps}
+                characters = {characters}
+              />
+            );
+          }}
+          />
+        </Switch>
+      </main>
+      <footer className="app__footer">
+        Esto es un footer
+      </footer>
           
           
       </div>
