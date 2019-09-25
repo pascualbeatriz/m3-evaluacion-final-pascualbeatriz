@@ -12,15 +12,17 @@ class App extends React.Component {
     this.state = {
       characters:[],
       gap: '',
-      gender:'all'
+      gender:''
     }
     this.getInputValue = this.getInputValue.bind(this);
     this.getGender = this.getGender.bind(this);
+    this.getLocalStorage = this.getLocalStorage.bind(this);
+  
   }
 
 componentDidMount (){
   this.getUrl();
-  // getLocalStorage();
+  this.getLocalStorage();
 }
 
 getUrl(){
@@ -39,38 +41,32 @@ getInputValue(event){
   });
 }
 
-getGender(event) {
-  const newGender = event.currentTarget.value;
-  console.log(newGender);
-  this.setState({
-    gender: newGender
-  });
-}
-
-
 // getGender(event) {
-//   const genderResult = event.currentTarget.value;
-//   this.setState(prevState => {
-//     const newGender = {
-//       ...prevState.gender,
-//       gender:genderResult
-//     };
-//     localStorage.setItem('lsgetGender', JSON.stringify(newGender));
-    
-//     return {
-//       gender:genderResult
-//     };
+//   const newGender = event.currentTarget.value;
+//   console.log(newGender);
+//   this.setState({
+//     gender: newGender
 //   });
 // }
 
-// getLocalStorage() {
-//   const ls = JSON.parse(localStorage.getItem('lsgetGender'));
-//   if (ls !== null) {
-//     this.setState({
-//       characters: ls
-//     });
-//   }
-// }
+
+getGender(event) {
+  const newGender = event.currentTarget.value;
+    this.setState({
+      gender: newGender
+    });
+
+    localStorage.setItem('lsgetGender', JSON.stringify(newGender));
+}
+
+getLocalStorage() {
+  const ls = JSON.parse(localStorage.getItem('lsgetGender'));
+  if (ls !== null) {
+    this.setState({
+      gender: ls
+    });
+  }
+}
 
 
   render() {
