@@ -4,11 +4,12 @@ import CharacterCard from './CharacterCard';
 import {Link} from 'react-router-dom';
 
 const CharacterList = props => {
-  const {characters,gap} = props;
+  const {characters,gap,type} = props;
   return(
     <ol className="characters__list">
     {characters
     .filter(myCharacter => myCharacter.name.toUpperCase().includes(gap.toUpperCase()))
+    .filter(personaje => personaje.type.toUpperCase().includes(type.toUpperCase()))
     .map(characterList => {
       return(
         <li className="character__List" key={characterList.id}>
@@ -29,6 +30,8 @@ const CharacterList = props => {
 
 CharacterList.propTypes = {
   characters: PropTypes.arrayOf(PropTypes.object).isRequired,
+  type:PropTypes.string,
+  gap: PropTypes.string
 };
 
 export default CharacterList;
