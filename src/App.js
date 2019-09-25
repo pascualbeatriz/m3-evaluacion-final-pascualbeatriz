@@ -12,12 +12,13 @@ class App extends React.Component {
     this.state = {
       characters:[],
       gap: '',
-      gender:''
+      gender:'',
+      location:''
     }
     this.getInputValue = this.getInputValue.bind(this);
     this.getGender = this.getGender.bind(this);
     this.getLocalStorage = this.getLocalStorage.bind(this);
-  
+    this.getLocation = this.getLocation.bind(this);
   }
 
 componentDidMount (){
@@ -41,13 +42,12 @@ getInputValue(event){
   });
 }
 
-// getGender(event) {
-//   const newGender = event.currentTarget.value;
-//   console.log(newGender);
-//   this.setState({
-//     gender: newGender
-//   });
-// }
+getLocation(event) {
+  const newLocation = event.currentTarget.value;
+  this.setState({
+    location: newLocation
+  });
+}
 
 
 getGender(event) {
@@ -70,7 +70,7 @@ getLocalStorage() {
 
 
   render() {
-    const {characters,gap,gender} = this.state;
+    const {characters,gap,gender,location} = this.state;
     return (
       <div className="app">
         <h1 className="app__tittle">titulo, aqui va el logo</h1>
@@ -83,6 +83,8 @@ getLocalStorage() {
                   characters = {characters}
                   gender = {gender}
                   getGender = {this.getGender}
+                  location = {location}
+                  getLocation = {this.getLocation}
                 />   
               );
             }}
@@ -93,6 +95,7 @@ getLocalStorage() {
                   routerProps = {routerProps}
                   characters = {characters}
                   gender = {gender}
+                  location = {location}
                 />
               );
             }}

@@ -4,10 +4,12 @@ import CharacterCard from './CharacterCard';
 import {Link} from 'react-router-dom';
 
 const CharacterList = props => {
-  const {characters,gap,gender} = props;
+  const {characters,gap,gender,location} = props;
   return(
     <ol className="characters__list">
     {characters
+    .filter(myCharacterLocation => myCharacterLocation.location.name.toUpperCase().includes(location.toUpperCase()))
+
     .filter(myCharacter => myCharacter.name.toUpperCase().includes(gap.toUpperCase()))
     .filter(item => {
       if (gender === 'all') {
