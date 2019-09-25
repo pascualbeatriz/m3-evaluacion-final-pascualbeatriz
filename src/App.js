@@ -12,9 +12,10 @@ class App extends React.Component {
     this.state = {
       characters:[],
       gap: '',
-      gender:'Female'
+      gender:''
     }
     this.getInputValue = this.getInputValue.bind(this);
+    this.getGender = this.getGender.bind(this);
   }
 
 componentDidMount (){
@@ -37,6 +38,31 @@ getInputValue(event){
   });
 }
 
+getGender(event) {
+  const genderResult = event.currentTarget.value;
+  this.setState(prevState => {
+    const newGender = {
+      ...prevState.gender,
+      gender:genderResult
+    };
+    localStorage.setItem('lsgetGender', JSON.stringify(newGender));
+    
+    return {
+      gender:genderResult
+    };
+  });
+}
+
+getLocalStorage() {
+  const ls = JSON.parse(localStorage.getItem('lsgetGender'));
+  if (ls !== null) {
+    this.setState({
+      character: ls
+    });
+  }
+}
+
+
   render() {
     const {characters,gap,gender} = this.state;
     return (
@@ -50,6 +76,7 @@ getInputValue(event){
                   gap = {gap}
                   characters = {characters}
                   gender = {gender}
+                  getGender = {this.getGender}
                 />   
               );
             }}
